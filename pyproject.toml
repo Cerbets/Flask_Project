@@ -5,14 +5,19 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-#    "aiosqlite>=0.22.0",
-#    "asyncpg>=0.31.0",
-#    "fastapi>=0.127.0",
-#    "fastapi-users[sqlalchemy]>=15.0.3",
-#    "imagekitio[aiohttp]>=5.0.0",
-#    "psycopg2>=2.9.11",
-#    "python-dotenv>=1.2.1",
+
     "streamlit>=1.52.2",
-    "psycopg2-binary==2.9.11",
-#    "uvicorn[standard]>=0.40.0",
 ]
+
+[project.optional-dependencies]
+backend = [
+        "aiosqlite>=0.22.0",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.127.0",
+    "fastapi-users[sqlalchemy]>=15.0.3",
+    "imagekitio[aiohttp]>=5.0.0",
+    "psycopg2>=2.9.11",
+    "python-dotenv>=1.2.1",
+       "uvicorn[standard]>=0.40.0"
+
+    ]
