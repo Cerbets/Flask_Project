@@ -13,5 +13,6 @@ dependencies = [
 #    "psycopg2>=2.9.11",
 #    "python-dotenv>=1.2.1",
     "streamlit>=1.52.2",
+    "psycopg2-binary==2.9.11",
 #    "uvicorn[standard]>=0.40.0",
 ]
