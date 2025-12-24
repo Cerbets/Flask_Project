@@ -1,0 +1,24 @@
+[project]
+name = "pythonproject"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+
+    "streamlit>=1.52.2",
+]
+[tool.poetry]
+package-mode = false
+[project.optional-dependencies]
+backend = [
+        "aiosqlite>=0.22.0",
+    "asyncpg>=0.31.0",
+    "fastapi>=0.127.0",
+    "fastapi-users[sqlalchemy]>=15.0.3",
+    "imagekitio[aiohttp]>=5.0.0",
+    "psycopg2>=2.9.11",
+    "python-dotenv>=1.2.1",
+       "uvicorn[standard]>=0.40.0"
+
+    ]
