@@ -3,6 +3,6 @@ asyncpg>=0.31.0
 fastapi>=0.127.0
 fastapi-users[sqlalchemy]>=15.0.3
 imagekitio[aiohttp]>=5.0.0
-psycopg2-binary>=2.9.11
+asyncpg
 python-dotenv>=1.2.1
 uvicorn[standard]>=0.40.0
