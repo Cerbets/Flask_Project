@@ -12,6 +12,9 @@ from fastapi import Depends
 from dotenv import load_dotenv
 
 import os
+
+from streamlit.elements.lib.column_types import JsonColumn
+
 load_dotenv()
 DATABASE_URL = os.environ.get("DATABASE_URL")
 class Base(DeclarativeBase):
@@ -23,9 +26,10 @@ class User(SQLAlchemyBaseUserTableUUID,Base):
         "Set_Profile_page",
         back_populates="user",
         uselist=False,
-        lazy="joined"  # <--- Ключевое изменение
+        lazy="joined"
     )
     posts = relationship("Post",back_populates="user")
+
 
 
 class Post(Base):
@@ -50,7 +54,6 @@ class Set_Profile_page(Base):
 
 
 
-
 engine = create_async_engine(DATABASE_URL,pool_recycle=300,
     pool_pre_ping=True,)
 
@@ -58,7 +61,7 @@ async_session_maker = async_sessionmaker(engine, expire_on_commit=False)
 
 async def create_db_and_tables():
     async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all) 
+        await conn.run_sync(Base.metadata.create_all)
 async def get_async_session() -> AsyncGenerator[AsyncSession, None ]:
     async with async_session_maker() as session:
         yield session

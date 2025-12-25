@@ -6,3 +6,4 @@ imagekitio[aiohttp]>=5.0.0
 asyncpg
 python-dotenv>=1.2.1
 uvicorn[standard]>=0.40.0
+openai

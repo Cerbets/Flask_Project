@@ -10,6 +10,9 @@ class PostResponse(BaseModel):
     title: str
     content: str
 
+class ChatMessage(BaseModel):
+    content: str
+
 class ProfilePageRead(BaseModel):
     url: str
     file_type: str

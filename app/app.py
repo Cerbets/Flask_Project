@@ -11,6 +11,7 @@ import os
 import uuid
 import tempfile
 from app.users import auth_backend, current_active_user,fastapi_users
+from app.ai import router as ai_router
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await create_db_and_tables()
@@ -22,8 +23,10 @@ app.include_router(fastapi_users.get_register_router(UserRead,UserCreate),prefix
 app.include_router(fastapi_users.get_reset_password_router(),prefix="/auth",tags=["auth"])
 app.include_router(fastapi_users.get_verify_router(UserRead),prefix="/auth",tags=["auth"])
 app.include_router(fastapi_users.get_users_router(UserRead,UserUpdate),prefix="/users",tags=["auth"])
-
-
+app.include_router(
+    ai_router,
+    dependencies=[Depends(current_active_user)] # Теперь все роуты в ai.py защищены!
+)
 
 @app.post("/upload")
 async def upload_file(
