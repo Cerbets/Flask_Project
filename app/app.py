@@ -25,7 +25,7 @@ app.include_router(fastapi_users.get_verify_router(UserRead),prefix="/auth",tags
 app.include_router(fastapi_users.get_users_router(UserRead,UserUpdate),prefix="/users",tags=["auth"])
 app.include_router(
     ai_router,
-    dependencies=[Depends(current_active_user)] # Теперь все роуты в ai.py защищены!
+    dependencies=[Depends(current_active_user)] 
 )
 
 @app.post("/upload")
