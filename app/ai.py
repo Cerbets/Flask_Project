@@ -27,7 +27,7 @@ class ChatRequest(BaseModel):
 @router.post("/chat")
 async def chat_with_ai(request: ChatRequest, user=Depends(current_active_user)):
     if not request.messages[-1].content:
-        raise HTTPException(status_code=400, detail="Список сообщений не может быть пустым")
+        raise HTTPException(status_code=400, detail="Empty")
 
     try:
 
